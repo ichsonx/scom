@@ -1,4 +1,3 @@
-
 // Copyright 2013 com authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License"): you may
@@ -18,10 +17,10 @@
 package scom
 
 import (
-"fmt"
-"strconv"
-"strings"
-"time"
+	"fmt"
+	"strconv"
+	"strings"
+	"time"
 )
 
 // Format unix time int64 to string
@@ -118,10 +117,7 @@ var datePatterns = []string{
 // 将【日期字符串】转换成golang的time类型，使用的模板与函数DateT()不同
 // example："2020-07-01 17:21:30"的模板为 "Y-m-d H:i:s"。参考变量【datePatterns】
 func DateParse(dateString, format string) (time.Time, error) {
-	fmt.Println(dateString)
-	fmt.Println(format)
 	replacer := strings.NewReplacer(datePatterns...)
 	format = replacer.Replace(format)
-	fmt.Println(format)
 	return time.ParseInLocation(format, dateString, time.Local)
 }
